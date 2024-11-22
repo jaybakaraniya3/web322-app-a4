@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Add New Item</h2>
+        <form method="post" action="/items/add" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Feature Image of Item:</legend>
+                <div class="form-group mb-3">
+                    <input class="form-control" id="featureImage" name="featureImage" type="file">
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Item Content:</legend>
+                <div class="form-group mb-3">
+                    <label for="name">Item Name:</label>
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter item name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="price">Item Price:</label>
+                    <input class="form-control" id="price" name="price" type="number" placeholder="Enter item price" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="description">Item Description:</label>
+                    <textarea class="form-control" id="description" name="description" rows="5" placeholder="Enter item description"></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="category">Item Category:</label>
+                    <select class="form-control" name="category" id="category" required>
+                        {{#each categories}}
+                        <option value="{{this.id}}">{{this.category}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="published">Item Visibility:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="published" id="published">
+                            Published
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+            <hr>
+            <input type="submit" class="btn btn-primary" value="Add Item">
+        </form>
+    </div>
+</div>
